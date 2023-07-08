@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.lndev.dslist.dto.GameDTO;
 import com.lndev.dslist.dto.GameMinDTO;
@@ -23,7 +24,7 @@ public class GameService {
 		return result.stream().map(x -> new GameMinDTO(x)).collect(Collectors.toList());
 		
 	}
-	
+	@Transactional(readOnly = true)
 	public Optional<GameDTO> findGameById(Long id) {
 		return gameRepository.findById(id).map(GameDTO::new);
 	} 
