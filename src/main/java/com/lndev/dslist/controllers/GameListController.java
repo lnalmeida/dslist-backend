@@ -11,7 +11,7 @@ import com.lndev.dslist.dto.GameListDTO;
 import com.lndev.dslist.services.GameListService;
 
 @RestController
-@RequestMapping(value="list")
+@RequestMapping(value="lists")
 public class GameListController {
 	
 	@Autowired
