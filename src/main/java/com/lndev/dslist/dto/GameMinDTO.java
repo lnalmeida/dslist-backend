@@ -1,6 +1,9 @@
 package com.lndev.dslist.dto;
 
+import java.util.Optional;
+
 import com.lndev.dslist.entities.Game;
+import com.lndev.dslist.projections.GameMinProjection;
 
 public class GameMinDTO {
 	private long id;
@@ -8,6 +11,7 @@ public class GameMinDTO {
 	private int year;
 	private String imgUrl;
 	private String shortDescription;
+	private Optional<Integer> position;
 	
 	public GameMinDTO() {}
 
@@ -17,6 +21,16 @@ public class GameMinDTO {
 		year = entity.getYear();
 		imgUrl = entity.getImgUrl();
 		shortDescription = entity.getShortDescription();
+	}
+	
+	public GameMinDTO(GameMinProjection projection) {
+		id = projection.getId();
+		title = projection.getTitle();
+		year = projection.getYear();
+		imgUrl = projection.getImgUrl();
+		shortDescription = projection.getShortDescription();
+		position = Optional.ofNullable(projection.getPosition());
+		
 	}
 
 	public long getId() {
