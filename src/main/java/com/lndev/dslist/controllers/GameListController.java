@@ -20,6 +20,7 @@ public class GameListController {
 	
 	@Autowired
 	public GameListService gameListService;
+	
 	@Autowired
 	public GameService gameService;
 	
