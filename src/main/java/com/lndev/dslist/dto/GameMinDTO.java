@@ -11,7 +11,7 @@ public class GameMinDTO {
 	private int year;
 	private String imgUrl;
 	private String shortDescription;
-	private Optional<Integer> position;
+	private Integer position;
 	
 	public GameMinDTO() {}
 
@@ -29,8 +29,7 @@ public class GameMinDTO {
 		year = projection.getYear();
 		imgUrl = projection.getImgUrl();
 		shortDescription = projection.getShortDescription();
-		position = Optional.ofNullable(projection.getPosition());
-		
+		position = projection.getPosition();		
 	}
 
 	public long getId() {
